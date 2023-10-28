@@ -6,7 +6,7 @@ class Rover {
        throw Error("Rover position required.");
      }
      this.mode = "NORMAL";
-     this.GeneratorWatts = 110;
+     this.generatorWatts = 110;
    }
  
    receiveMessage(theMessage) {
