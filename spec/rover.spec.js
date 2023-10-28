@@ -1,4 +1,4 @@
-onst Rover = require('../rover.js');
+const Rover = require('../rover.js');
 const Message = require('../message.js');
 const Command = require('../command.js');
 
@@ -13,8 +13,9 @@ describe("Rover class", function() {
       let firstrover = new Rover(1000)
       expect(firstrover.position).toEqual(1000); 
       expect(firstrover.mode).toEqual("NORMAL"); 
-      expect(firstrover.GeneratorWatts).toEqual(110);
-
+      expect(firstrover.generatorWatts).toEqual(110);
+  });
+  
 
     it("response returned by receiveMessage contains name of message", function() {
       let commands = [new Command('MODE_CHANGE', 'LOW_POWER'), new Command('STATUS_CHECK')];
@@ -61,7 +62,7 @@ describe("Rover class", function() {
      expect(response.results[1]).toEqual({completed: false});
   });
 
-  
+
   it("responds with position for move command", function() {
     let commands = [new Command('MOVE', 2000)];
     let message = new Message('Moving to position 2000', commands);
@@ -70,4 +71,4 @@ describe("Rover class", function() {
     expect(rover.position).toEqual(2000);
   }); 
 
-})})
+}); 
